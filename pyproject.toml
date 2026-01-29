@@ -1,0 +1,62 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ultimate-plotter"
+version = "1.0.0"
+description = "Academic-style CSV data visualization command-line tool"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "UltimatePlotter Team"}
+]
+keywords = ["visualization", "plotting", "academic", "csv", "matplotlib", "data-science"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "matplotlib>=3.5.0",
+    "pandas>=1.3.0",
+    "numpy>=1.20.0",
+    "seaborn>=0.11.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "black>=22.0.0",
+    "flake8>=4.0.0",
+]
+
+[project.scripts]
+utp = "utp.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/ultimate-plotter/ultimate-plotter"
+Documentation = "https://github.com/ultimate-plotter/ultimate-plotter#readme"
+Repository = "https://github.com/ultimate-plotter/ultimate-plotter"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["utp*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
